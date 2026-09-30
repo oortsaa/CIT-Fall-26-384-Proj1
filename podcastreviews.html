@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#174b37">
+	<title>Episode Reviews | Numbers on the Board</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="site-header">
+		<a class="site-name" href="index.html">The Listening Post</a>
+		<nav class="site-nav" aria-label="Main navigation">
+			<a class="site-section" href="index.html">Show overview</a>
+			<a class="site-section" href="yourown.html">Write a review</a>
+			<a class="site-section" href="otherpages.html">Links &amp; references</a>
+		</nav>
+	</header>
+
+	<main class="episode-list">
+		<header class="review-header">
+			<p class="eyebrow">Episode reviews <span aria-hidden="true">/</span> Basketball</p>
+			<h1>Numbers on the Board</h1>
+			<p class="dek">A closer listen to individual episodes of <i>Numbers on the Board</i>.</p>
+		</header>
+
+		<article class="episode">
+			<h2>Predicting Western Conference Rankings | Numbers On The Board</h2>
+			<iframe src="https://www.youtube.com/embed/58TzG9W9O7Q" title="Predicting Western Conference Rankings | Numbers On The Board" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<p class="video-note">In this episode, the hosts dive into predicting the Western Conference rankings for the upcoming season.</p>
+			<div class="episode-copy">
+				<section aria-labelledby="episode-one-premise">
+					<h3 id="episode-one-premise">Premise</h3>
+					<p>The hosts discuss how Western Conference teams could finish in the upcoming season and compare their predictions.</p>
+				</section>
+				<section aria-labelledby="episode-one-enjoyment">
+					<h3 id="episode-one-enjoyment">How enjoyable was it?</h3>
+					<p>The episode is engaging for basketball fans who enjoy hearing the hosts make and debate their season predictions.</p>
+				</section>
+				<p class="episode-rating"><strong>My rating: 8.2/10.</strong> Highly recommended.</p>
+				<div class="rating-control">
+					<label for="episode-one-rating">Your rating:</label>
+					<select id="episode-one-rating" class="rating-select" data-rating-output="episode-one-rating-output">
+						<option value="">Choose a score</option>
+						<option value="1">1 - Not enjoyable</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5 - Average</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10 - Excellent</option>
+					</select>
+					<output id="episode-one-rating-output" class="rating-feedback" aria-live="polite">Choose a score from 1 to 10.</output>
+				</div>
+			</div>
+		</article>
+
+		<article class="episode">
+			<h2>Numbers On The Board: Best Power Forward Candidates</h2>
+			<iframe src="https://www.youtube.com/embed/lj0ML8rAQ44" title="Numbers On The Board: Best Power Forward Candidates" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<p class="video-note">In this episode, the hosts share their picks for the best power forward candidates for the upcoming season.</p>
+			<div class="episode-copy">
+				<section aria-labelledby="episode-two-premise">
+					<h3 id="episode-two-premise">Premise</h3>
+					<p>The episode goes over the hosts' picks for the top power forwards in the league. Their leading candidates include Jayson Tatum and Giannis Antetokounmpo, with Pascal Siakam and Alex Sarr also discussed. They disagree about the players and ask questions to explain what separates them, including Alex Sarr's potential. Their points are reasonable, and it makes the show more enjoyable when they challenge each other to stick with their reasoning. The episode also covers NBA news, including Jalen Duren's contract negotiations, and ends with Unplugged, a segment where the hosts talk about whatever they want. It is usually one of the funniest and most enjoyable parts of the podcast.</p>
+				</section>
+				<section aria-labelledby="episode-two-enjoyment">
+					<h3 id="episode-two-enjoyment">How enjoyable was it?</h3>
+					<p>Overall, this episode was engaging. The hosts' chemistry makes it enjoyable and funny to watch or listen to, and their disagreements keep the discussion interesting.</p>
+				</section>
+				<p class="episode-rating"><strong>My rating: 8.7/10.</strong> Highly recommended.</p>
+				<div class="rating-control">
+					<label for="episode-two-rating">Your rating:</label>
+					<select id="episode-two-rating" class="rating-select" data-rating-output="episode-two-rating-output">
+						<option value="">Choose a score</option>
+						<option value="1">1 - Not enjoyable</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5 - Average</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10 - Excellent</option>
+					</select>
+					<output id="episode-two-rating-output" class="rating-feedback" aria-live="polite">Choose a score from 1 to 10.</output>
+				</div>
+			</div>
+		</article>
+	</main>
+
+	<footer class="site-footer">
+		<p>Thoughtful listening, one show at a time.</p>
+		<img class="footer-art" src="images/EB_ASSET1.avif" alt="Enjoy Basketball artwork">
+	</footer>
+
+	<script>
+		document.querySelectorAll(".rating-select").forEach((select) => {
+			select.addEventListener("change", () => {
+				const output = document.getElementById(select.dataset.ratingOutput);
+				output.textContent = select.value
+					? `Your rating: ${select.value} out of 10.`
+					: "Choose a score from 1 to 10.";
+			});
+		});
+	</script>
+</body>
+</html>

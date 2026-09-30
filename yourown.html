@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#174b37">
+	<title>Write a Review | Numbers on the Board</title>
+	<link rel="stylesheet" href="css/style.css" integrity="sha384-hwVwyntsYXtIF/uIdVylHr0Uq+WdZ1sYUJxPnQe6RwqaVLoI9T3AuCg2c8Tq6G8W" crossorigin="anonymous">
+</head>
+<body>
+	<header class="site-header">
+		<a class="site-name" href="index.html">The Listening Post</a>
+		<nav class="site-nav" aria-label="Main navigation">
+			<a class="site-section" href="index.html">Show overview</a>
+			<a class="site-section" href="podcastreviews.html">Episode reviews</a>
+			<a class="site-section" href="otherpages.html">Links &amp; references</a>
+		</nav>
+	</header>
+
+	<main class="review-form-page">
+		<header class="review-header">
+			<p class="eyebrow">Listener page <span aria-hidden="true">/</span> Your review</p>
+			<h1>Share your take</h1>
+			<p class="dek">Tell other basketball fans what you thought of an episode of <i>Numbers on the Board</i>.</p>
+		</header>
+
+		<form class="listener-form" id="listener-review-form" autocomplete="on">
+			<fieldset class="form-section">
+				<legend>Your name</legend>
+				<div class="name-fields">
+					<div class="form-field">
+						<label for="first-name">First name</label>
+						<input id="first-name" name="firstName" type="text" autocomplete="given-name" maxlength="40" required>
+					</div>
+					<div class="form-field initial-field">
+						<label for="last-initial">Last initial</label>
+						<input id="last-initial" name="lastInitial" type="text" autocomplete="family-name" maxlength="1" pattern="[A-Za-z]" title="Enter one letter." required>
+					</div>
+				</div>
+			</fieldset>
+
+			<div class="form-field form-section">
+				<label for="episode-title">Which episode did you watch?</label>
+				<input id="episode-title" name="episodeTitle" type="text" list="episode-options" autocomplete="off" placeholder="Choose an episode or type its title" required>
+				<datalist id="episode-options">
+					<option value="Predicting Western Conference Rankings"></option>
+					<option value="Best Power Forward Candidates"></option>
+				</datalist>
+			</div>
+
+			<div class="form-field form-section">
+				<label for="review-description">What did you like about the episode?</label>
+				<textarea id="review-description" name="description" rows="6" minlength="10" maxlength="1000" placeholder="Share a moment, discussion, or segment that stood out to you." required></textarea>
+				<p class="field-hint">Keep your review between 10 and 1,000 characters.</p>
+			</div>
+
+			<button class="submit-review" type="submit">Preview review</button>
+		</form>
+
+		<section class="review-preview" id="review-preview" aria-labelledby="preview-heading" aria-live="polite" hidden>
+			<p class="eyebrow">Your submission preview</p>
+			<h2 id="preview-heading">Listener review</h2>
+			<p class="preview-byline" id="preview-byline"></p>
+			<p class="preview-episode" id="preview-episode"></p>
+			<p class="preview-description" id="preview-description"></p>
+		</section>
+
+		<section class="form-brand-gallery" aria-labelledby="brand-gallery-heading">
+			<h2 id="brand-gallery-heading">Enjoy Basketball</h2>
+			<div class="brand-image-grid">
+				<figure>
+					<img src="images/Enjoy image.png" alt="Enjoy Basketball wordmark in orange lettering.">
+					<figcaption>Enjoy Basketball wordmark</figcaption>
+				</figure>
+				<figure>
+					<img src="images/Enjoyimage2.jpeg" alt="Orange basketball hoop emblem on a navy background.">
+					<figcaption>Enjoy Basketball emblem</figcaption>
+				</figure>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<p>Thoughtful listening, one show at a time.</p>
+		<img class="footer-art" src="images/EB_ASSET1.avif" alt="Enjoy Basketball artwork">
+	</footer>
+
+	<script>
+		const reviewForm = document.getElementById("listener-review-form");
+		const reviewPreview = document.getElementById("review-preview");
+
+		reviewForm.addEventListener("submit", (event) => {
+			event.preventDefault();
+			if (!reviewForm.reportValidity()) return;
+
+			const formValues = new FormData(reviewForm);
+			document.getElementById("preview-byline").textContent =
+				`By ${formValues.get("firstName")} ${formValues.get("lastInitial")}.`;
+			document.getElementById("preview-episode").textContent =
+				`Episode: ${formValues.get("episodeTitle")}`;
+			document.getElementById("preview-description").textContent =
+				formValues.get("description");
+			reviewPreview.hidden = false;
+			reviewPreview.scrollIntoView({ behavior: "smooth", block: "nearest" });
+		});
+	</script>
+</body>
+</html>
+<!-- in this script i implemented it for previewing listener reviews its not fully fleshed out as i wanted this as an example page for an actual post of having people who visit the site review-->
